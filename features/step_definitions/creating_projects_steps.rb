@@ -87,12 +87,16 @@ end
   # page.should have_content(text)
 # end
 
-Then(/^I will "(.*?)"$/) do |text|
+Then(/^I should "(.*?)"$/) do |text|
  page.should have_content(text)
 end
 
-Then(/^I should see "(.*?)"$/) do |title|
- expect(page).to have_title title
+Then(/^I should see "(.*?)"$/) do |text|
+ if text == "TextMate 2 - Projects - Ticketee"
+   expect(page).to have_title text
+ else
+   page.should have_content(text)
+ end
 end
 
 
