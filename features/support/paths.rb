@@ -13,6 +13,9 @@ module NavigationHelpers
 
     when /the project page for "([^\"]*)"/
       project_path(Project.find_by_name!($1))
+      
+    when page_name
+       project_path(Project.find_by_name!(page_name))
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
