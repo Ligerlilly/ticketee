@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_filter :find_project
-  before_filter :find_ticket, only: [:show, :edit, :updat, :destroy]
+  before_filter :find_ticket, only: [:show, :edit, :update, :destroy]
   def new
     @ticket = @project.tickets.build
   end
@@ -17,6 +17,20 @@ class TicketsController < ApplicationController
   end
   
   def show
+  end
+  
+  def edit
+    
+  end
+  
+  def update
+    if @ticket.update_attributes(params[:ticket])
+      flash[:notice] = "Ticket has been updated."
+      redirect_to [@project, @ticket]
+    else
+      flash[:alert] = "Ticket has not been updated."
+      redirect_to action: "edit"
+    end
   end
   
   private
