@@ -29,3 +29,9 @@ Given /^I am signed in as admin$/ do
     Then I should see "Signed in successfully."
   })
   end
+  
+Given /^I am signed in as "([^\"]*)"$/ do |email|
+  @user = User.find_by_email!(email)
+  steps("Given I am signed in as them") if email == "user@ticketee.com"
+  steps("Given I am signed in as admin") if email == "admin@ticketee.com"
+end
