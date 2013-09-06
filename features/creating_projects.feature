@@ -4,6 +4,10 @@ Feature: Creating Projects
   I want to create them easily
   
   Background:
+    Given there are the following users:
+      | email              | password | admin |
+      | admin@ticketee.com | password | true  |
+    And I am signed in as admin
     Given I am on the homepage
     When I follow "New Project"
   
