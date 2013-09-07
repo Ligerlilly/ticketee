@@ -8,7 +8,8 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def create
-    @user = User.new(params[:user])
+    @user = User.new(params[:user], as: :admin)
+    set_admin
     if @user.save
       flash[:notice] = "User has been created."
       redirect_to admin_users_path
@@ -17,4 +18,9 @@ class Admin::UsersController < Admin::BaseController
       render action: "new"
     end
   end
+  
+  private
+    def set_admin
+      @user.admin = params[:user][:admin] == "1"
+    end
 end
