@@ -20,9 +20,17 @@ describe ProjectsController do
   end
   
   it "displays and error for a missing project" do
+    sign_in(:user, user)
     get :show, id: "not_here"
     response.should redirect_to(projects_path)
-    message = "The project you were looking for could not be found"
+    message = "The project you were looking for could not be found."
     flash[:alert]. should eql(message)
+  end
+  
+  it "cannot access the show action" do
+    sign_in(:user, user)
+    get :show, id: project.id
+    response.should redirect_to(projects_path)
+    flash[:alert].should eql("The project you were looking for could not be found.")
   end
 end
