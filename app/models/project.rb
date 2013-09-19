@@ -5,4 +5,8 @@ class Project < ActiveRecord::Base
   has_many :permissions, as: :thing
   scope :reable_by, lambda { |user| 
     joins(:permissions).where(permissions: { action: "view", user_id: user.id }) }
+    
+  def self.for(user)
+    user.admin? ? Project : Project.reable_by(user)
+  end
 end
