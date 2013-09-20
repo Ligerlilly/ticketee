@@ -41,7 +41,7 @@ group :production do
 end
 
 gem 'devise', '~> 1.4.3'
-
+gem 'cancan'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
