@@ -12,10 +12,10 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-# Single-line step scoper
-When /^(.*) within ([^:]+)$/ do |step, parent|
-  with_scope(parent) { When step }
-end
+# # Single-line step scoper
+# When /^(.*) within ([^:]+)$/ do |step, parent|
+  # with_scope(parent) { When step }
+# end
 
 # Multi-line step scoper
 When /^(.*) within ([^:]+):$/ do |step, parent, table_or_string|
@@ -103,6 +103,10 @@ Then(/^I should see "(.*?)"$/) do |text|
  end
 end
 
+Then(/^ticket should have "(.*?)" within "(.*?)"$/) do |text, element|
+  page.should have_content(text)
+end
+ 
 
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
