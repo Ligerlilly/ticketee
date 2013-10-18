@@ -1,7 +1,7 @@
 class AddAttachmentAssetToTickets < ActiveRecord::Migration
   def self.up
     change_table :tickets do |t|
-      t.attachment :asset
+      t.attachment :asset  
     end
   end
 

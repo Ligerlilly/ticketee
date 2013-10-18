@@ -25,6 +25,12 @@ gem 'jquery-rails'
 
 group :test, :development do 
   gem 'rspec-rails', '~> 2.5'
+  
+end
+
+group :development do
+  gem 'guard'
+  gem 'guard-cucumber'
 end
 
 group :test do
@@ -43,6 +49,7 @@ end
 gem 'devise', '~> 1.4.3'
 gem 'cancan'
 gem 'paperclip'
+gem 'rb-inotify', '~> 0.8.8'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
