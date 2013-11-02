@@ -26,6 +26,7 @@ gem 'jquery-rails'
 group :test, :development do 
   gem 'rspec-rails', '~> 2.5'
   gem 'spring' 
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -37,7 +38,7 @@ end
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'capybara'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '< 1.1.0'
   gem 'factory_girl'
   gem 'email_spec'
 end
@@ -51,6 +52,7 @@ gem 'devise', '~> 1.4.3'
 gem 'cancan'
 gem 'paperclip'
 gem 'rb-inotify', '~> 0.8.8'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
