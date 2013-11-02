@@ -220,6 +220,7 @@ DEPENDENCIES
   guard-cucumber
   guard-rspec
   jquery-rails
+  launchy
   paperclip
   pg (= 0.15.1)
   rails (= 3.2.11)

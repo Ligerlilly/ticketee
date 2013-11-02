@@ -41,6 +41,7 @@ group :test do
   gem 'database_cleaner', '< 1.1.0'
   gem 'factory_girl'
   gem 'email_spec'
+  gem 'launchy'
 end
 
 group :production do
