@@ -23,9 +23,10 @@ guard 'cucumber', all_on_start: false, cli: '--format progress --no-profile', co
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})                      { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
-end
-
-callback([:start_begin, :reload_begin]) do
+  callback([:start_begin, :reload_begin]) do
     puts "Running db:test:prepare"
     `rake db:test:prepare`
   end
+end
+
+
