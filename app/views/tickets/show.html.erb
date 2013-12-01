@@ -29,6 +29,8 @@
       <% end %>
     </div>
   <% end %>
+  </div>
+  
   <h3>Comments</h3>
   <div id='comments'>
   	<% if @ticket.comments.exists? %>
@@ -38,4 +40,3 @@
   	<% end %>
   	</div>
   <%= render 'comments/form' %>
-</div>
