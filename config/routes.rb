@@ -4,6 +4,7 @@ Ticketee::Application.routes.draw do
   
 
   devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
   get '/awaiting_confirmation',
       to: "users#confirmation",
       as: 'confirm_user'
@@ -23,6 +24,7 @@ Ticketee::Application.routes.draw do
     resources :users do
       resources :permissions
     end
+    resources :states
   end
   
   put '/admin/users/:user_id/permissions', to: 'admin/permissions#update', as: :update_user_permissions

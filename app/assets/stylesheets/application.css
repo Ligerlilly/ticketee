@@ -170,7 +170,6 @@ ul#tickets .state {
 }
 
 .state {
-  display: inline;
   width: 4em;
   text-align: center;
   font-weight: bold;
@@ -179,7 +178,9 @@ ul#tickets .state {
   margin-right: 10px;
   font-size: 80%;
   padding: 5px;
+ 
 }
+
 
 #ticket #tags {
   margin-top: 20px;
