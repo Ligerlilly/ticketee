@@ -48,4 +48,12 @@ Feature: Creating Tickets
     And ticket should have "spin.txt" within "#ticket .assets"
     When I follow "speed.txt"
     
+  Scenario: Create a ticket with tags
+    When I fill in "Title" with "Non-standards compliance"
+    And I fill in "Description" with "My pages are ugly!"
+    And I fill in "Tags" with "browser visual"
+    And I press "Create Ticket"
+    Then I should see "Ticket has been created."
+    And I should see "browser" within "#ticket #tags"
+    And I should see "visual" within "#ticket #tags"
   
