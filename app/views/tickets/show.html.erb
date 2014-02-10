@@ -30,7 +30,8 @@
     </div>
   <% end %>
 </div>
-
+<h3><%= link_to "Back", project_path(@ticket.project) %></h3>
+<br />
 <h3>Comments</h3>
 <div id='comments'>
   <% if @ticket.comments.exists? %> <co id='ch09_191_1' />
@@ -39,5 +40,6 @@
     There are no comments for this ticket.
   <% end %>
 </div>
-
+<h3><%= link_to "Back", project_path(@ticket.project) %></h3>
+<br />
 <%= render "comments/form" %>

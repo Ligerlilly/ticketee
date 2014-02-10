@@ -212,3 +212,7 @@ ul#tickets .state {
 #ticket #watchers {
   font-size: 85%;
 }
+
+textarea {
+	height: 100px;
+}
