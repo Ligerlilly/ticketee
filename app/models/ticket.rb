@@ -2,6 +2,7 @@ class Ticket < ActiveRecord::Base
   attr_accessible :description, :title, :assets_attributes, :user
   validates :title, presence: true
   validates :description, presence: true, length: {minimum: 10}
+  after_create :creator_watches_me
   
   searcher do
     label :tag, from: :tags, field: :name
@@ -17,6 +18,7 @@ class Ticket < ActiveRecord::Base
   has_many :comments
   belongs_to :state
   has_and_belongs_to_many :tags
+  has_and_belongs_to_many :watchers, join_table: "ticket_watchers", class_name: "User"
   
   def tag!(tags)
       tags = tags.split(" ").map do |tag|
@@ -24,5 +26,10 @@ class Ticket < ActiveRecord::Base
       end
       
       self.tags << tags
+    end
+    
+  private
+    def creator_watches_me
+      self.watchers << user
     end
 end
