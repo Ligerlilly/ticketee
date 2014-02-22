@@ -61,5 +61,9 @@ module Ticketee
     
     #Setting up comment observer to test sending mail
     config.active_record.observers = :comment_observer
+    
+    #trying to get guard and spork to work together
+    I18n.enforce_available_locales = false
+    
   end
 end
