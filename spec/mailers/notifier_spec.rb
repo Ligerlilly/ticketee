@@ -22,9 +22,10 @@ describe Notifier do
     
      it "mail should be sent to ticket_owner" do
         mail.to.should include(ticket_owner.email)
-        mail.subject.should include("[ticketee] TextMate 2 - Release date")
-        mail.body.should include("Release date")        
+        mail.subject.should include("[ticketee] TextMate 2 - Release date")     
      end
+     
+     
   
   
   end
