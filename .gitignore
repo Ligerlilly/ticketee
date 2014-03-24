@@ -15,3 +15,7 @@
 /tmp
 
 /public/system
+
+# Ignore gmail login info
+/config/initializers/mail.rb
+/features/gmail.feature

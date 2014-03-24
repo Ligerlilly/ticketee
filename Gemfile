@@ -32,6 +32,7 @@ group :test, :development do
   #gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6' 
   gem 'rb-inotify', '~> 0.9'
+  gem 'gmail'
   
 end
 
