@@ -37,5 +37,12 @@
           p["name"] == "Access Denied"
         end.should be_false
       end
+      
+      it "XML" do
+        get "#{url}.xml", token: token
+        last_response.body.should eql(Project.for(user).to_xml)
+        projects = Nokogiri::XML(last_response.body)
+        projects.css("project name").text.should eql("Ticketee")
+      end
     end
   end
