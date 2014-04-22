@@ -1,5 +1,9 @@
 Ticketee::Application.routes.draw do
-  
+  namespace :api do
+    namespace :v1 do
+      resources :projects
+    end
+  end
 
   
 
@@ -43,6 +47,8 @@ Ticketee::Application.routes.draw do
       end
     end
   end
+  
+  
   
   put '/admin/users/:user_id/permissions', to: 'admin/permissions#update', as: :update_user_permissions
   
