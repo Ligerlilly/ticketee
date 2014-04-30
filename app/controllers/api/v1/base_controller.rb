@@ -1,5 +1,6 @@
   class Api::V1::BaseController < ActionController::Base
     before_filter :authenticate_user
+    before_filter :authorize_admin!, except: [:index, :show]
     respond_to :json, :xml
     
     private
@@ -16,5 +17,13 @@
       unless @current_user
         respond_with(error: "Token is invalid")
       end
+    end
+  end
+  
+  def authorize_admin!   
+    if !@current_user.admin?
+      error = { error: "You must be an admin to do that." }
+      warden.custom_failure!
+      render params[:format].to_sym => error, status: 401
     end
   end
