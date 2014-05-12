@@ -19,6 +19,11 @@
       @project = Project.find(params[:id])
       respond_with(@project, methods: 'last_ticket')
     end
+    
+    def update
+      @project.update_attributes(params[:project])
+      respond_with(@project)
+    end
     private
         
     
