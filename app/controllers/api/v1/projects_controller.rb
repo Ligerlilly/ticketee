@@ -24,6 +24,11 @@
       @project.update_attributes(params[:project])
       respond_with(@project)
     end
+    
+    def destroy
+      @project.destroy
+      respond_with(@project)
+    end
     private
         
     
