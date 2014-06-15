@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :admin, as: :admin
   # attr_accessible :title, :body
   has_many :permissions
+  
+  def self.reset_request_count!
+    update_all("request_count = 0", "request_count > 0")
+  end
+  
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
   end
